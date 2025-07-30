@@ -79,8 +79,14 @@ export default function Conversation(props) {
                         setShowPrechatForm(true);
                         return;
                     }
-                    console.log("Pre-Chat is not enabled. Continuing to create a new conversation.");
-                    return handleCreateNewConversation()
+                    console.log("Pre-Chat is not enabled. Continuing to create a new conversation with hidden pre-chat fields.");
+                    return handleCreateNewConversation({
+			+     Account: '001XXXXXXXXXXXX',
+			+     Case:    '500XXXXXXXXXXXX',
+			+     Contact: '003XXXXXXXXXXXX',
+			+     Lead:    '00QXXXXXXXXXXXX',
+			+     Type:    'TestType'
+			+   })
                             .then(() => {
                                 console.log(`Completed initializing a new conversation with conversationId: ${getConversationId()}`);
                             })
